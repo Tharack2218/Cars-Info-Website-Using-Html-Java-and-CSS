@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="image/logo.png">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Carsgalaxy</title>
+
+</head>
+<body>
+    <div id="preloader"></div>
+    
+<header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#vehicles">vehicles</a>
+        <a href="About us.html">Services</a>
+        <a href="Offers.html">offers</a>
+        <a href="reviews.html">reviews</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div >
+        <button id="login-btn" class=""></button>
+        <img src="image/img_avatar.png" alt="Avatar" class="avatar">
+        <a href="Home.html"  button id="logout-btn" class="btn">logout</a>
+        
+       
+    </div>
+
+
+</header> 
+    
+<div class="login-form-container" >
+
+    <span id="close-login-form" class="fas fa-times" ></span>
+
+<script>
+    function fun(){
+        var emailID=document.myform.email.value,i=0;
+            atpos=emailID.indexOf("@");
+            dotpos=emailID.lastIndexOf(".");
+            if(atpos<1 ||((dotpos-atpos)<2)){
+                alert("Please enter correct email ID");
+                i++;
+            }
+            if(i==0){
+                document.getElementById("myform").action="Home2.html";
+            }
+    }
+</script>
+    <form name="myform" action="" id="myform" onsubmit="fun()" >
+        <h3>user login</h3>
+        <input type="email" placeholder="email" name="email" class="box" required>
+        <input type="password" placeholder="password" class="box" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+        <p> forget your password <a href="">click here</a> </p>
+        <!-- <a href="" input type="submit" value="login" class="btn" onclick="fun()" >login</a> -->
+        <input type="submit" class="btn" value="login">
+
+    </form>
+</div>
+<div class="signup-form-container">
+     
+    <span id="close-signup-form" class="fas fa-times"></span>
+    <script>
+        function validate(){
+            var i=0;
+            if(document.form.fname.value==""){
+            alert("U have left first name as blank")
+            i++;       
+            }
+            if(document.form.lname.value==""){
+                alert("U have left last name as blank");
+                i++;
+            }
+            if(document.form.email.value==""){
+                alert("U haven't entered any mail");
+                i++;
+            }
+            var emailID=document.form.email.value;
+            atpos=emailID.indexOf("@");
+            dotpos=emailID.lastIndexOf(".");
+            if(atpos<1 ||((dotpos-atpos)<2)){
+                alert("Please enter correct email ID");
+                i++;
+            }
+            if(document.form.number.value==""){
+                alert("Please enter your mobile number");
+                i++;
+            }
+            if(i==0){
+                alert("signup successful....")
+            }
+           
+        }
+    </script>
+    <form name="form" action="" onsubmit="validate()">
+        <h3>Create account</h3>
+        <input type="First name" placeholder="First name" name="fname" class="box" >
+        
+        <input type="last name" placeholder="last name" name="lname" class="box">
+        <input type="email" placeholder="email" name="email" class="box">
+        <input type="mobile" placeholder="Mobile"name="number" value maxlength="10" class="box" pattern="[1-9]{1}[0-9]{9}" >
+        <input type="password" placeholder="password"  class="box" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+        <input type="submit" value="signup" class="btn">
+    
+    </form>
+
+    </div>
+
+
+<section class="home" id="home">
+
+    <h3 data-speed="-2" class="home-parallax">Search Never Ends</h3>
+
+    <img data-speed="5" class="home-parallax" src="image/home-img.png" alt="">
+
+    <a data-speed="7" href="#services" class="btn home-parallax">explore cars</a>
+
+</section>
+
+<section class="icons-container">
+
+    <div class="icons">
+        <i class="fas fa-home"></i>
+        <div class="content">
+            <h3>150+</h3>
+            <p>branches</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-car"></i>
+        <div class="content">
+            <h3>4770+</h3>
+            <p>cars sold</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-users"></i>
+        <div class="content">
+            <h3>320+</h3>
+            <p>happy clients</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-car"></i>
+        <div class="content">
+            <h3>1500+</h3>
+            <p>news cars</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="vehicles" id="vehicles">
+
+    <h1 class="heading"> popular <span>vehicles</span> </h1>
+
+    <div class="swiper vehicles-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="https://s7d1.scene7.com/is/image/hyundai/2022-ioniq-5-sel-rwd-shooting-star-herox:Browse?fmt=png-alpha" alt="">
+                <div class="content">
+                    <h3>Hyundai Ioniq 5</h3>
+                    <div class="price"> <span>price : </span> ₹ 45.00 - 55.00 Lakh  </div>
+                    <p>
+                        <span class="fas fa-circle"></span> 2022
+                        <span class="fas fa-circle"></span> automatic
+                        <span class="fas fa-circle"></span> electric Car
+                        <span class="fas fa-circle"></span> 183kmph
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://www.mclarenranchomirage.com/static/dealer-12177/2019_McLaren_GT.png" alt="">
+                <div class="content">
+                    <h3>McLaren GT</h3>
+                    <div class="price"> <span>price : </span> ₹ 5.16 crore/- </div>
+                    <p>
+                        <span class="fas fa-circle"></span> 2022
+                        <span class="fas fa-circle"></span> automatic
+                        <span class="fas fa-circle"></span> 99 Octane
+                        <span class="fas fa-circle"></span> 400kmph
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://www.team-bhp.com/forum/attachments/indian-car-scene/2311381d1653197721-next-gen-mahindra-scorpio-now-revealed-scorpio-n-smartselect_20220522105910_youtube.jpg " alt="">
+                <div class="content">
+                    <h3>Mahindra Scorpio-N</h3>
+                    <div class="price"> <span>price : </span> ₹ 11.99 - 19.49 Lakh </div>
+                    <p>
+                        <span class="fas fa-circle"></span> 2022
+                        <span class="fas fa-circle"></span> Gare
+                        <span class="fas fa-circle"></span> petrol/diesel
+                        <span class="fas fa-circle"></span> 153kmph
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://static.toiimg.com/photo/msid-91623022/91623022.jpg" alt="">
+                <div class="content">
+                    <h3>Kia EV6</h3>
+                    <div class="price"> <span>price : </span> ₹ 59.95 - 64.95 Lakh </div>
+                    <p>
+                        <span class="fas fa-circle"></span> 2022
+                        <span class="fas fa-circle"></span> automatic
+                        <span class="fas fa-circle"></span> Electric
+                        <span class="fas fa-circle"></span> 500kmph
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://images.91wheels.com/assets/uploads/swatchs/Urus_BiancoIcarus1652942105.jpg?width=620?width=640&q=75" alt="">
+                <div class="content">
+                    <h3>Lamborghini Urus</h3>
+                    <div class="price"> <span>price : </span> ₹ 3.15-3.43 Crore </div>
+                    <p>
+                        new
+                        <span class="fas fa-circle"></span> 2022
+                        <span class="fas fa-circle"></span> automatic
+                        <span class="fas fa-circle"></span> petrol
+                        <span class="fas fa-circle"></span> 383kmph
+                    </p>
+                    
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://images.91wheels.com//assets/b_images/main/models/profile/profile1640590777.jpg?width=360" alt="">
+                <div class="content">
+                    <h3>Hyundai Sonata</h3>
+                    <div class="price"> <span>price : </span> ₹ 20.77 Lakh </div>
+                    <p>
+                        <span class="fas fa-circle"></span> 2023
+                        <span class="fas fa-circle"></span> automatic
+                        <span class="fas fa-circle"></span> Petrol/Diesel
+                        <span class="fas fa-circle"></span> 120kmph
+                    </p>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+
+<section class="services" id="services">
+
+    <h1 class="heading"> All    <span>Brands</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <center><img src="image/kia 9999.svg" alt=""></center>
+            <a href="kia.html" class="btn">KIA</a>
+        </div>
+        <div class="box">
+            <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=75" alt="">
+            
+            <a href="hyundai.html" class="btn">HYUNDAI</a>
+        </div>
+        <div class="box">
+            <img src="image/SUZUKI2.png" alt="">
+        
+            <a href="MRUTHI.HTML" class="btn">MARUTI</a>
+        </div>
+        <div class="box">
+            <img src="image/TAYOTA2.png" alt="">
+            
+            <a href="TOYOTA.HTML" class="btn">TOYOTA</a>
+        </div>
+        <div class="box">
+            <img src="image/TATA2.png" alt="">
+        
+            <a href="TATA.html" class="btn">TATA</a>
+        </div>
+        <div class="box">
+            <img src="image/mercedes-benz-9.svg" alt="">
+            
+            <a href="benz.html" class="btn">BENZ</a>
+        </div>
+        <div class="box">
+            <img src="image/MAHENDRA2.png" alt="">
+        
+            <a href="mahindra.html" class="btn">MAHENDRA</a>
+        </div>
+        <div class="box">
+            <center><img src="image/rolls-royce.svg" alt=""></center>
+            
+            <a href="rolls-royce.html" class="btn">RR</a>
+        </div>
+        <div class="box">
+            <img src="image/volvo-3.svg" alt="">
+        
+            <a href="volvo.html" class="btn">VOLVO</a>
+        </div>
+        <div class="box">
+            <img src="image/nissan-6.svg" alt="">
+            
+            <a href="NISSAN.HTML" class="btn">NISSAN</a>
+        </div>
+        <div class="box">
+            <center><img src="image/mg.svg" alt=""></center>
+        
+            <a href="MG.html" class="btn">MG</a>
+        </div>
+        <div class="box">
+            <img src="image/BMW2.png" width="4" height="0.7" alt="">
+            
+            <a href="bmw.html" class="btn">BMW</a>
+        </div>
+        <div class="box">
+            <center><img src="image/bmw-mini-1.svg" height="50px" width="50px" alt=""></center>
+        
+            <a href="MINI-COO.HTML" class="btn">MINI</a>
+        </div>
+        <div class="box">
+            <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/15/brands/logos/skoda.jpg?v=1630055414864&q=75" width="4" height="0.7"  alt="">
+            
+            <a href="skoda.html" class="btn">SKODA</a>
+        </div>
+        <div class="box">
+            <img src="image/ferrari-ges.svg" alt="">
+            
+            <a href="ferrari.html" class="btn">FERRARI</a>
+        </div>
+        <div class="box">
+            <img src="image/land-rover-2.svg" alt="">
+            
+            <a href="land rover.html" class="btn">LANDROVER</a>
+        </div>
+
+        <div class="box">
+            <img src="image/LEXUS.png" alt="">
+            
+            <a href="lexus.html" class="btn">LEXUS</a>
+        </div>
+
+        <div class="box">
+            <img src="image/volkswagen-3.svg" alt="">
+            
+            <a href="volkswagen.html" class="btn">VOLKS</a>
+        </div>
+
+        <div class="box">
+            <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/18/brands/logos/audi.jpg?v=1630055874070&q=75" alt="">
+            
+            <a href="#" class="btn">AUDI</a>
+        </div>
+
+        <div class="box">
+            <img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/7/brands/logos/honda.jpg?v=1630056209549&q=75" alt="" height="2px">
+            
+            <a href="honda.html" class="btn">HONDA</a>
+        </div>
+
+        <div class="box">
+            <img src="image/tesla-9.svg" alt="">
+            
+            
+            <a href="tesla.html" class="btn">TESLA  </a>
+        </div>
+    </div>
+
+</section>
+
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span>Latest</span> cars </h1>
+
+    <div class="swiper featured-slider">
+
+       <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/115501/seltos-exterior-right-front-three-quarter.jpeg?isig=0&q=75" alt="">
+                <div class="content">
+                    <h3>kia seltos</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">₹ 10.19 Lakh</div>
+                    <a href="Seltos.html" class="btn">check out</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/45184/hector-plus-exterior-right-front-three-quarter-7.jpeg?q=75" alt="">
+                <div class="content">
+                    <h3>MG Hector Plus</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">₹ 14.65 Lakh</div>
+                    <a href="hector.html" class="btn">check out</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/41645/tata-nexon-right-front-three-quarter3.jpeg?q=75" alt="">
+                <div class="content">
+                    <h3>Tata Nexon</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">₹ 7.54 Lakh</div>
+                    <a href="tata nexon.html" class="btn">check out</a>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/41564/hyundai-creta-right-front-three-quarter9.jpeg?q=75" alt="">
+                <div class="content">
+                    <h3>Hyundai Creta</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">₹ 10.44 Lakh</div>
+                    <a href="hyundai creta.html" class="btn">check out</a>
+                </div>
+            </div>
+
+       </div>
+
+       <div class="swiper-pagination"></div>
+
+    </div>
+
+    <div class="swiper featured-slider">
+
+        <div class="swiper-wrapper">
+ 
+             <div class="swiper-slide box">
+                 <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/42355/xuv700-exterior-right-front-three-quarter.jpeg?isig=0&q=75" alt="">
+                 <div class="content">
+                     <h3>Mahindra XUV700</h3>
+                     <div class="stars">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star-half-alt"></i>
+                     </div>
+                     <div class="price">₹ 13.18 Lakh</div>
+                     <a href="#" class="btn">check out</a>
+                 </div>
+             </div>
+ 
+             <div class="swiper-slide box">
+                 <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/116201/new-c-class-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75" alt="">
+                 <div class="content">
+                     <h3>Mercedes-Benz C-Class</h3>
+                     <div class="stars">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star-half-alt"></i>
+                     </div>
+                     <div class="price">₹ 55.00 Lakh</div>
+                     <a href="benz2.html" class="btn">check out</a>
+                 </div>
+             </div>
+ 
+             <div class="swiper-slide box">
+                 <img src="https://imgd.aeplcdn.com/664x374/cw/ec/28085/Land-Rover-Range-Rover-Velar-Exterior-114227.jpg?wm=0&q=75g" alt="">
+                 <div class="content">
+                     <h3> Range Rover Velar</h3>
+                     <div class="stars">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star-half-alt"></i>
+                     </div>
+                     <div class="price">₹ 86.75 Lakh</div>
+                     <a href="range rover.html" class="btn">check out</a>
+                 </div>
+             </div>
+ 
+             <div class="swiper-slide box">
+                 <img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/43356/jaguar-xe-front-right-three-quarter-7.jpeg?q=75" alt="">
+                 <div class="content">
+                     <h3>Jaguar XE</h3>
+                     <div class="stars">
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star-half-alt"></i>
+                     </div>
+                     <div class="price">₹ 46.64 Lakh</div>
+                     <a href="#" class="btn">check out</a>
+                 </div>
+             </div>
+ 
+        </div>
+ 
+        <div class="swiper-pagination"></div>
+ 
+     </div>
+
+</section>
+
+<section class="newsletter">
+    
+    <h3>subscribe for latest updates</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, suscipit.</p>
+
+   <form action="thanks.html">
+        <input type="email" placeholder="enter your email" required>
+        <input type="submit" value="subscribe">
+   </form>
+
+</section>
+
+<section class="reviews" id="reviews">
+
+    <h1 class="heading"> client's <span>review</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="image/ram.png" alt="">
+                <div class="content">
+                    <p>This is the platform for many middle class families to choose there new cars according to there price range</p>
+                    <h3>Ramesh Vemula</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/hitish.jpeg" alt="">
+                <div class="content">
+                    <p>This is the platform choosing new cars with many choices and much information</p>
+                    <h3>Sai Hitesh</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/varshitha.jpeg" alt="">
+                <div class="content">
+                    <p>This is the platform for many middle class families to choose there new cars according to there price range</p>
+                    <h3>Varshitha Reddy</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/sasi.jpeg" alt="">
+                <div class="content">
+                    <p>This is the platform choosing new cars with many choices and much information</p>
+                    <h3>Sasidher</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/jaswanth.jpeg" alt="">
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam incidunt quod praesentium iusto id autem possimus assumenda at ut saepe.</p>
+                    <h3>Jaswanth</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"><span>contact</span> us</h1>
+
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d67010.24239687802!2d76.85265859833986!3d10.869258382870099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85c95d3e828eb%3A0x2785cb4510629029!2sAmrita%20Vishwa%20Vidyapeetham!5e0!3m2!1sen!2sin!4v1655204850772!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="" loading="lazy"></iframe>
+<script>
+    function vali(){
+        if(document.f1.name.value==""){
+            alert("Your name hasn't filled");
+        }
+        var emailID=document.f1.email.value;
+            atpos=emailID.indexOf("@");
+            dotpos=emailID.lastIndexOf(".");
+            if(atpos<1 ||((dotpos-atpos)<2)){
+                alert("Please enter correct email ID")
+            }
+            if(document.f1.message.value=""){
+                alert("You have not entered any message")
+            }
+            
+    }
+</script>
+        <form name="f1" action="https://formspree.io/f/xzboqvvo"
+        method="POST" onsubmit="vali()">
+            <h3>get in touch</h3>
+            <input type="text" placeholder="your name" name="name"  class="box">
+            <input type="email" placeholder="your email" name="email" class="box">
+            <input type="tel" placeholder="number" name="number" class="box" pattern="[1-9]{1}[0-9]{9}" >
+            <textarea placeholder="your message" name="message" class="box" cols="30" rows="10"></textarea>
+            <input type="submit" value="send message" name="button" class="btn">
+        </form>
+
+    </div>
+
+</section>
+
+<section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>our branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Vijayawada </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Chennai </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Coimbatore </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Mumbai </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#services"> <i class="fas fa-arrow-right"></i> vehicles </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> services </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="# contact"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+
+</section>
+<div id="cover-spin"></div>
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

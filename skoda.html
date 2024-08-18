@@ -1,0 +1,539 @@
+<style>
+    .ms{border:groove;width: 800px;padding-top: 20px;box-shadow: 0 .2rem .5rem rgba(0,0,0,.3);margin-left: 30px;padding: 20px;}
+    
+    .op{border: none;}
+
+    *{
+        margin:0; padding:0;
+        box-sizing: border-box;
+        transition:all .2s linear;
+    }
+      body {
+        overflow-x: hidden;
+        
+    }
+p{font-size: 15px;;color:dimgray;margin-right: 150px;margin-left: 150px;}
+    
+.main{margin-right: 150px;margin-left: 150px;margin-top: 50px; margin-bottom: 25px;}
+
+ 
+.brands{margin-left: 50px;width: 50px;height: 80px; border:groove;
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+.brands:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.brand{margin-left: 50px;margin-bottom: 15px; font-size: large;}
+.tittle{margin-right: 100px;margin-left: 150px;}
+
+
+
+#more {display: none;}
+
+.btn{border-radius: 8px;padding: 8px 20px;background-color: #e7e7e7; color: black;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 4.5rem;
+    color:var(--black);
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom:1rem; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.4rem 3rem;
+    background:var(--light-yellow);
+    color:var(--black);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding:3rem 9%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:var(--black);
+    font-weight: bold;
+}
+
+.header .logo span{
+    color:var(--yellow);
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--yellow);
+}
+
+#login-btn .btn{
+    margin-top: 0;
+}
+
+#login-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
+.header.active{
+    padding:2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color:var(--light-color);
+    display: none;
+}
+
+.footer{
+    background: var(--light-yellow);
+    padding-bottom: 5rem;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 0;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);
+}
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:2rem;
+    }
+
+    .header.active{
+        padding:2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: block;
+    }
+
+    #menu-btn.fa-times{
+        transform:rotate(180deg);
+    }
+
+    #login-btn .btn{
+        display: none;
+    }
+
+    #login-btn i{
+        display: block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:99%; left:0; right:0;
+        background: #fff;
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .navbar a{
+        margin:2rem;
+        display: block;
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .heading{
+        font-size: 3rem;
+    }
+
+}
+.titles{
+    padding-top: 150px;margin-right: 150px;margin-left: 150px;
+}
+.hold{
+    display: flex;
+    flex-direction: row;
+}
+.right-sec{
+    flex: 1;
+}
+.left{
+    flex: 1;
+    flex-shrink: 2;    
+}
+
+.button1{background-color:#b6b6b6;padding: 4px 12px;margin-top: 5px;}
+.button1:hover{background-color: #ffee80;}
+.button3{border:2px solid;padding: 4px 12px;margin-top: 5px;color: red;background-color: #e7e7e7;}
+
+
+.upc{font-size: small;color: #666;}
+
+
+</style>
+
+<script>
+    function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+
+</script>
+
+
+
+
+<html>
+    <title>Carsgalaxy</title>
+    <header class="header">
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+    
+        <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+    
+        <nav class="navbar">
+            <a href="Home.html">home</a>
+            <a href="Home.html">vehicles</a>
+            <a href="About us.html">Services</a>
+            <a href="Offers.html">offers</a>
+            <a href="reviews.html">reviews</a>
+            <a href="#contact">contact</a>
+        </nav>
+    
+        <div >
+            <button id="login-btn" class="btn">login</button>
+            <button id="signup-btn" class="btn">signup</button>
+           
+        </div>
+    
+    </header> 
+    <head class="siva">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <title class="tittle">Skoda cars in India</title>
+        
+            <h1 class="main">SKODA</h1>
+    </head><div>
+    <body>
+        <p>
+            Skoda car price starts at Rs 13.21 Lakh for the cheapest model which is Slavia and the price of most expensive model,
+            which is Kodiaq starts at Rs 43.22 Lakh. Skoda offers 6 car models in India, including 2 cars in SUV category, 4 
+            cars in Sedan category.<span id="dots">....</span><span id="more">
+                <br>
+            <br>
+            Skoda Auto India is a subsidiary of Czech automobile manufacturer Skoda Auto. The company is a part of Volkswagen Group 
+            India and currently heads the Skoda Auto Volkswagen India Privte Limited (SAVWIPL). The Indian subsidiary of Skoda Auto 
+            was founded in 2001 and has its manufacturing facility located in Aurangabad, Maharashtra and a research facility in Pune, 
+            Maharashtra.
+            <br>
+            Skoda under its India 2.0 project has restructured its plans in the country. The product portfolio of Skoda India currently 
+            includes the Octavia, Superb, and Kushaq. In 2021, Skoda introduced the new-generation Octavia followed by the all-new 
+            Kushaq that marked the company's entry into the mid-size SUV segment.
+            <br>
+            <br>
+            The Czech carmaker has discontinued to Rapid sedan and will replace it with the Slavia in early 2022. Further to be added 
+            in the portfolio is the Kodiaq facelift that will be introduced in January 2022.</span>
+
+             <center><button onclick="myFunction()" id="myBtn" class="btn">Read more</button></center>
+            
+        </p>
+        <br>
+        <hr>
+        <br>
+        <br>
+        
+        <h1 class="tittle">SKODA CAR MODELS</h1>
+        <br>
+        <br>
+
+        <div class="hold">
+            <div class="right-sec">
+                <div class="tittle">
+                     <center><table class="ms">
+                    <tr class="op">
+                        <td width="40%">
+                            <div><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/44549/kushaq-exterior-right-front-three-quarter-52.jpeg?q=75"></div>
+    
+                        </td>
+                        <td>SKODA KUSHAQ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.5 / 5</span></div><br>
+                        <br>
+                        <b>Rs 13.56 lakh* </b><small>onwards</small><br>
+                        
+
+                        <a href="BREZZA.html" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                <table class="ms">
+                    <br>
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/44088/slavia-exterior-right-front-three-quarter-5.jpeg?isig=0&q=75"></td>
+                        <td>SKODA SLAVIA &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;3.6 / 5</span><br>
+                        <br>
+                        <b>Rs 13.21 lakh* </b><small>onwards</small> <br>
+                        <a href="BREZZA.html" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                    <br>
+                <table class="ms">
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/40371/octavia-exterior-right-front-three-quarter-2.jpeg?q=75"></td>
+                        <td>SKODA OCTAVIA &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.5 / 5</span><br>
+                        <br>
+                        <b>Rs 31.35 lakh* </b><small>onwards</small>  <br>
+                        <a href="BREZZA.html" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                    <br>
+                <table class="ms">
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/40371/octavia-exterior-right-front-three-quarter-2.jpeg?q=75"></td>
+                        <td>SKODA SUPERB &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.7 / 5</span><br>
+                        <br>
+                        <b>Rs 39.32 lakh* </b><small>onwards</small>  <br>
+                        <a href="BREZZA.html" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table></center>
+            <br>
+        <br>
+        <br>
+
+        <h1 class="tittle" align="center">UPCOMMING SKODA CARS</h1>
+        <br>
+        <br>
+        <br>
+        <center>
+            <table class="ms">
+            <tr>
+                <td width="40%"><img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Skoda/Fabia-2022/8428/1633497402352/front-left-side-47.jpg?tr=w-456" width="230" height="150"></td>
+                <td>SKODA FABIA<br>
+                    <br>
+                <b>Rs 7.00 lakh* </b><small>onwards</small>  <br>
+                <span class="upc">Expected launch - 2022</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="alert('                      We will send you a mail when launched\n                                        Thank you !')"  class="button3">Alert Me When Launched</button>
+            </tr>
+        </table>
+        <br>
+        <table class="ms">
+            <tr>
+                <td width="40%"><img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Skoda/Enyaq-iV/9131/1654232335596/front-left-side-47.jpg?tr=w-456" width="230" height="150"></td>
+                <td>SKODA ENYAQ iV<br>
+                    <br>
+                <b>Rs 40 lakh* </b><small>onwards</small>  <br>
+                <span class="upc">Expected launch - 2022</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="alert('                      We will send you a mail when launched\n                                        Thank you !')"  class="button3">Alert Me When Launched</button>
+            </tr>
+        </table></center>
+        <br>
+        <br>
+        <br>
+        <br>
+
+</body>
+        </div>
+
+    </div></center>
+        <div class="left">
+            <h2 class="brand">SIMILAR BRANDS</h2>
+            <table class="brands" border="1" >
+                <tr>
+                    <td class="brands"><a href="MRUTHI.HTML" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707&q=75" width="100px" height="60px"></td>
+                    <td class="brands"><a href="TATA.html" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/16/brands/logos/tata.jpg?v=1629973276336&q=75" width="100px" height="60px"></td>
+                    <td class="brands"><a href="hyundai.html" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=75" width="100px" height="60px"></td>
+                </tr>
+                <tr>
+                <td class="brands"><a href="VOLKSWAGEN.html" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/20/brands/logos/volkswagen.jpg?v=1630056096439&q=75" width="100px" height="60px"></td>                
+                <td class="brands"><a href="NISSAN.HTML" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/21/brands/logos/nissan.jpg?v=1631163973143&q=75" width="100px" height="60px"></td>
+                <td class="brands"><a href="TOYOTA.HTML" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/17/brands/logos/toyota.jpg?v=1630055705330&q=75" width="100px" height="60px"></td>
+            </tr>
+        </table>
+        </div>
+        </div>
+        
+
+<footer>
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+    
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> india </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
+            </div>
+    
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> vehicles </a>
+                <a href="services.html"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="reviews.html"> <i class="fas fa-arrow-right"></i> reviews </a>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+                <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+    
+        </div>
+    
+        <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+    </section></footer>
+</html>
+
+<script src="E:\UID\Project 1\html\New folder (2)\cars website\cars website\js\script.js"></script>    

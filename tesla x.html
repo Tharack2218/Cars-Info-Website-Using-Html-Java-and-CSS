@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- magnific popup css link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+  <!-- font awesome file link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- bootstrap file link  -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- custom css file link  -->
+  <style>
+
+    
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap'); 
+
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+}
+
+*{
+  margin:0; padding:0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  transition:all .2s linear;
+  text-transform: capitalize;
+  /* font-family: 'Exo 2', sans-serif; */
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+  font-size: 4rem;
+  text-align: center;
+  letter-spacing: 1.7rem;
+  color:rgb(252, 247, 247);
+  margin:2rem 0;
+  padding-bottom: 2rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 4.5rem;
+  color:var(--black);
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--orange);
+  text-underline-offset:-1.4rem;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+  background:#fff;
+  z-index: 100;
+  padding:1rem 2rem;
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.3);
+}
+
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom:1rem; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.4rem 3rem;
+    background:var(--light-yellow);
+    color:var(--black);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding:3rem 9%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:var(--black);
+    font-weight: bold;
+}
+
+.header .logo span{
+    color:var(--yellow);
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--yellow);
+}
+
+#login-btn .btn{
+    margin-top: 0;
+}
+
+#login-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
+.header.active{
+    padding:2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color:var(--light-color);
+    display: none;
+}
+
+.login-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.login-form-container.active{
+    top:0;
+}
+
+.login-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.login-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.login-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.login-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.login-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.login-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.login-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.login-form-container #close-login-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.signup-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.signup-form-container.active{
+    top:0;
+}
+
+.signup-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.signup-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.signup-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.signup-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.signup-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.signup-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.signup-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.signup-form-container #close-signup-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+
+
+.home .hero{
+  min-height: 90vh;
+  /* 9999 */
+  background: url(https://imgsrv2.voi.id/KZXIIJ4QhSOrP6tPE3PROejIX5yNlsDfRUAV91TTB8U/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy8xMDEyMzMvMjAyMTExMDUwODU4LW1haW4uanBn.jpg
+  ) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.home .row{
+  margin:0;
+}
+
+.home .hero .text1{
+  font-size: 5rem;
+  width:30rem;
+  background:#fff;
+  padding:0rem;
+  text-align: center;
+  opacity: .8;
+}
+
+.home .hero .text2{
+  font-size: 3.5rem;
+  width:32rem;
+  background:var(--orange);
+  padding:1rem;
+  text-align: center;
+  opacity: .8;
+  margin-top: 1rem;
+  color:#fff;
+  
+}
+
+
+.home .counting{
+  min-height: 30vh;
+  font-size: 3.5rem;
+  padding:2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home .counting .box{
+  margin: 2rem 4rem;
+  text-align: center;
+  
+}
+
+.home .counting .box .count{
+  font-size: 6rem;
+  color:#444;
+}
+
+.home .counting .box h3{
+  font-size: 2rem;
+  color:var(--orange);
+}
+
+.about{
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  padding-top: -40px;
+  background-color: #000;
+  
+}
+
+.about .image{
+  padding:2rem;
+}
+
+.about .image img{
+  height:45rem;
+  object-fit: cover;
+  box-shadow: 2.5rem 2.5rem 0 1rem var(--orange);
+}
+
+.about .info{
+  padding:2rem;
+  margin-top: 3rem;
+}
+
+.about .info h2{
+  color:var(--orange);
+  font-size: 3rem;
+}
+
+.about .info p{
+  font-size: 1.4rem;
+  color:rgb(253, 251, 251);
+  margin:2rem 0;
+}
+
+.about .info .icons a{
+  font-size: 2rem;
+  height: 4rem;
+  width:4rem;
+  line-height: 4rem;
+  text-align: center;
+  background:#333;
+  color:#fff;
+  border-radius: .5rem;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+.about .heading{color:white}
+.service .heading{color:black}
+
+.about .info .icons a:hover{
+  background:var(--orange);
+}
+
+.service{
+  min-height: 100vh;
+}
+
+.service .box-container{
+  width:90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.service .box-container .box{
+  height:25rem;
+  width:25rem;
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.3);
+  border-left: .5rem solid var(--orange);
+  border-right: .5rem solid var(--orange);
+  border-radius: .5rem;
+  text-align: center;
+  padding-top: 6rem;
+  margin:2rem 3rem;
+}
+
+.service .box-container .box .fas{
+  color:var(--orange);
+  font-size: 5rem;
+}
+
+.service .box-container .box p{
+  color:#333;
+  font-size: 1.1rem;
+  margin:2rem 0;
+}
+
+.project{
+  min-height:100vh;
+  background:#333;
+}
+
+.project .heading{
+  color:#fff;
+}
+
+.project .box-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project .box-container .box{
+  height:15rem;
+  width:30rem;
+  border-radius: .5rem;
+  margin:2rem;
+  overflow: hidden;
+  box-shadow: 0 .3rem .5rem #000;
+}
+
+.project .box-container .box img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+
+.project .box-container .box:hover img{
+  transform: scale(1.3);
+}
+
+
+.contact{
+  min-height: 100vh;
+}
+
+.contact-box-container{
+  width:93%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-box-container .contact-box{
+  height:15rem;
+  flex:1 0 30rem;
+  margin:2rem;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.2);
+  border-radius: .5rem;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.contact-box-container .contact-box i{
+  color:var(--orange);
+  font-size: 4rem;
+}
+
+.contact-box-container .contact-box h3{
+  font-size: 1.8rem;
+  color:#444;
+  margin:2rem 0;
+}
+
+.contact .form-container{
+  width:90%;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.2);
+  border-radius: .5rem;
+  padding:1rem 3rem;
+  margin-bottom: 2rem;
+}
+
+.contact .form-container form input, textarea{
+  height:4.5rem;
+  padding:0 1rem;
+  margin:2rem 0;
+  font-size: 1.5rem;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.2);
+  border:none;
+  outline: none;
+  color:#333;
+}
+
+.contact .form-container form .inputBox{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact .form-container form input[type="text"]{
+  width:49%;
+}
+
+.contact .form-container form input[type="email"]{
+  width:100%;
+}
+
+.contact .form-container form textarea{
+  width:100%;
+  height:20rem;
+  padding:1rem;
+  resize: none;
+  overflow-y: auto;
+}
+
+.contact .form-container form input[type="submit"]{
+  background:var(--orange);
+  width:15rem;
+  color:#fff;
+  font-size: 2rem;
+}
+
+.contact .form-container form input[type="submit"]:hover{
+  opacity:.8;
+}
+
+.footer{
+    background: var(--light-yellow);
+    padding-bottom: 8rem;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);
+}
+
+
+
+.fa-times{
+  transform: rotate(180deg);
+}
+
+/* media queries  */
+
+@media (max-width:768px){
+
+  html{
+    font-size: 50%;
+  }
+
+  
+
+}
+
+@media (max-width:400px){
+  .home .hero .text1{
+    font-size: 3.5rem;
+    width: 33rem;
+  }
+  .home .hero .text2{
+    font-size: 2.5rem;
+    width: 30rem;
+  }
+}
+  </style>
+
+  <title>Cars Galaxy</title>
+</head>
+<body>
+  
+<!-- header section starts  -->
+<header class="header">
+
+  <div id="menu-btn" class="fas fa-bars"></div>
+
+  <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+
+  <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#vehicles">vehicles</a>
+      <a href="">services</a>
+      <a href="#">offers</a>
+      <a href="#featured">featured</a>
+      <a href="#reviews">reviews</a>
+      <a href="#contact">contact</a>
+  </nav>
+
+  <div >
+      <button id="login-btn" class="btn">login</button>
+      <button id="signup-btn" class="btn">signup</button>
+     
+  </div>
+
+</header> 
+  
+<div class="login-form-container">
+
+  <span id="close-login-form" class="fas fa-times"></span>
+
+  <form action="">
+      <h3>user login</h3>
+      <input type="email" placeholder="email" class="box" required>
+      <input type="password" placeholder="password" class="box" required>
+      <p> forget your password <a href="#">click here</a> </p>
+      <input type="submit" value="login" class="btn">
+  </form>
+</div>
+<div class="signup-form-container">
+   
+  <span id="close-signup-form" class="fas fa-times"></span>
+  
+  <form action="">
+      <h3>Create account</h3>
+      <input type="First name" placeholder="First name" class="box">
+      <input type="last name" placeholder="last name" class="box">
+      <input type="email" placeholder="email" class="box">
+      <input type="number" placeholder="number" class="box">
+      <input type="password" placeholder="password" class="box">
+      <input type="submit" value="signup" class="btn">
+  </form>
+  </div>
+
+
+<!-- <header class="header fixed-top">
+
+<a href="#" class="logo"><img src="images/logo.png" alt=""></a> -->
+
+<!--<nav>
+  <ul>
+    <li><a href="#home">home</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#service">services</a></li>
+    <li><a href="#project">projects</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>-->
+
+<div class="fas fa-bars"></div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+
+<section id="home" class="home container-fluid p-0">
+
+<div class="row hero">
+  <div class="col pl-3 ml-sm-5 p-0">
+    <h1 class="text1">Tesla</h1>
+    <h3 class="text2">Model X</h3>
+  </div>
+</div>
+
+<div class="counting">
+
+<div class="box">
+  <h1 class="count" data-count="10.90">₹ 92 Lakh </h1>
+  <h3>Price Lakh</h3>
+</div>
+
+<div class="box">
+  <h1 class="count" data-count="15">15kmpl</h1>
+  <h3>Mileage(Kmpl)<h3>
+</div>
+
+<div class="box">
+  <h1 class="count" data-count="1497">3297cc</h1>
+  <h3>Engine CC</h3>
+</div>
+
+<div class="box">
+  <h1 class="count" data-count="50">50liters</h1>
+  <h3>Diesel capacity(lt)</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- home section ends -->
+
+
+<!-- about section starts  -->
+
+<section id="about" class="about container">
+
+<h1 class="heading">About car</h1>
+
+<div class="row align-items-center">
+
+  <div class="col-md-6 image">
+    <!-- img22 -->
+    <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Tesla/Model-X/5253/1611841733029/front-left-side-47.jpg" width="90%" alt="">
+  </div>
+
+  <div class="col-md-6 info">
+    <h2>Information about car</h2>
+    <p>The Model X has an EPA size class as an SUV,[7] and shares around 30 percent of its content with the Model S, half of the originally planned 60 percent, and weighs about 10 percent more. Both the Model X and Model S are produced at the Tesla Factory in Fremont, California. The prototype was unveiled at Tesla's design studios in Hawthorne, California on February 9, 2012.[11][12] First deliveries of the Model X began in September 2015.[13] After one full year on the market, in 2016, the Model X ranked seventh among the world's best-selling plug-in cars. </p>
+    <div class="icons">
+      <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+      <a href="https://twitter.com/i/flow/login" class="fab fa-twitter"></a>
+      <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+      <a href="https://in.pinterest.com/login/" class="fab fa-pinterest "></a>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- service section starts  -->
+
+<section id="service" class="service">
+
+<h1 class="heading">User Reviews</h1>
+
+<div class="box-container mx-auto">
+
+  <div class="box">
+    <div class="fas fa-user"></div>
+    <p>Its too good for getting knowledge about the car before purchase and in my personal experience its too good for me and help me for information about my car so first check the car details then go for purchase.!</p>
+  </div>
+
+  <div class="box">
+    <div class="fas fa-user"></div>
+    <p>Driving is very comfortable and for long drive there is a no problem, very smooth running, average is very good and comfortable sitting. Overall very good car.!</p>
+  </div>
+
+  <div class="box">
+    <div class="fas fa-user"></div>
+    <p>Very smooth and comfortable ride, pretty good mileage for an SUV car, well designed with lots of technological features. Have been very happy till now and have met to my expectations.!</p>
+  </div>
+
+  <div class="box">
+    <div class="fas fa-user"></div>
+    <p>Except Headlight throw everything else is awesome. Service cost is very less compared to other cars.Very good car and very powerfull engine and give a proper mileage of 17 km!</p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- service section ends -->
+
+  <!-- project section starts   -->
+
+  <section id="project" class="project">
+
+    <div class="heading">More Pics </div>
+    
+    <div class="box-container mx-auto">
+    
+    <div class="box">
+      <a href="https://upload.wikimedia.org/wikipedia/commons/1/14/Tesla_Model_X_Interior.jpg" title="pic1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Tesla_Model_X_Interior.jpg" alt="">
+      </a>
+    </div>
+    
+  <div class="box">
+    <a href="https://s1.cdn.autoevolution.com/images/news/this-tesla-model-x-has-a-bespoke-bentley-red-leather-interior-costs-180000-116332_1.jpg" title="pic2">
+      <img src="https://s1.cdn.autoevolution.com/images/news/this-tesla-model-x-has-a-bespoke-bentley-red-leather-interior-costs-180000-116332_1.jpg" alt="">
+    </a>
+  </div>
+  
+  <div class="box">
+    <a href="https://imgcdn.oto.com/medium/gallery/interior/133/2222/tesla-model-x-dashboard-view-121795.jpg" title="pic3">
+      <img src="https://imgcdn.oto.com/medium/gallery/interior/133/2222/tesla-model-x-dashboard-view-121795.jpg" alt="">
+    </a>
+  </div>
+  
+  <div class="box">
+    <a href="https://www.carscoops.com/wp-content/uploads/2022/01/2022-Tesla-Model-X.jpg" title="pic4">
+      <img src="https://www.carscoops.com/wp-content/uploads/2022/01/2022-Tesla-Model-X.jpg" alt="">
+    </a>
+  </div>
+  
+  <div class="box">
+    <a href="https://cdn.motor1.com/images/mgl/beKel/s3/2021-tesla-model-x.jpg" title="pic5">
+      <img src="https://cdn.motor1.com/images/mgl/beKel/s3/2021-tesla-model-x.jpg" alt="">
+    </a>
+  </div>
+  
+  <div class="box">
+    <a href="https://www.tesla.com/assets/img/mx_fb_s.jpg" title="pic6">
+      <img src="https://www.tesla.com/assets/img/mx_fb_s.jpg" alt="">
+    </a>
+  </div>
+  
+  </div>
+  
+  </section>
+  <section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>our branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> india </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> vehicles </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> services </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+
+</section>
+
+
+<!-- jquery file link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- main/custom javascript file link  -->
+<script>
+
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
+
+document.querySelector('#login-btn').onclick = () =>{
+  document.querySelector('.login-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-login-form').onclick = () =>{
+  document.querySelector('.login-form-container').classList.remove('active');
+}
+document.querySelector('#signup-btn').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-signup-form').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.remove('active');
+}
+
+
+
+window.onscroll = () =>{
+
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+
+  if(window.scrollY > 0){
+    document.querySelector('.header').classList.add('active');
+  }else{
+    document.querySelector('.header').classList.remove('active');
+  };
+
+};
+
+document.querySelector('.home').onmousemove = (e) =>{
+
+  document.querySelectorAll('.home-parallax').forEach(elm =>{
+
+    let speed = elm.getAttribute('data-speed');
+
+    let x = (window.innerWidth - e.pageX * speed) / 90;
+    let y = (window.innerHeight - e.pageY * speed) / 90;
+
+    elm.style.transform = `translateX(${y}px) translateY(${x}px)`;
+
+  });
+
+};
+
+
+document.querySelector('.home').onmouseleave = (e) =>{
+
+  document.querySelectorAll('.home-parallax').forEach(elm =>{
+
+    elm.style.transform = `translateX(0px) translateY(0px)`;
+
+  });
+
+};
+
+
+  $(document).ready(function(){
+
+$('.fa-bars').click(function(){
+  $(this).toggleClass('fa-times');
+  $('nav').toggleClass('nav-toggle');
+});
+
+$(window).on('scroll load',function(){
+  $('.fa-bars').removeClass('fa-times');
+  $('nav').removeClass('nav-toggle');
+});
+
+$('.count').each(function() {
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+  {
+    duration: 5000,
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum + '');
+    }
+  });
+});
+
+$('.project').magnificPopup({
+  delegate:'a',
+  type:'image',
+  gallery:{
+    enabled:true
+  }
+});
+
+});
+</script>
+
+</body>
+</html>

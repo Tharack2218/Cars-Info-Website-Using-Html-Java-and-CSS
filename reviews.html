@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <link rel='stylesheet' type='text/css' media='screen' href=''>
+  <script src="https://kit.fontawesome.com/44f557ccce.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 4.5rem;
+    color:var(--black);
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom:1rem; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.4rem 3rem;
+    background:var(--light-yellow);
+    color:var(--black);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding:3rem 9%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:var(--black);
+    font-weight: bold;
+}
+
+.header .logo span{
+    color:var(--yellow);
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--yellow);
+}
+
+#login-btn .btn{
+    margin-top: 0;
+}
+
+#login-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
+
+.header.active{
+    padding:2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color:var(--light-color);
+    display: none;
+}
+
+.login-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.login-form-container.active{
+    top:0;
+}
+
+.login-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.login-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.login-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.login-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.login-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.login-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.login-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.login-form-container #close-login-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.signup-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.signup-form-container.active{
+    top:0;
+}
+
+.signup-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.signup-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.signup-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.signup-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.signup-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.signup-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.signup-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.signup-form-container #close-signup-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+
+.title{
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: rgb(50, 50, 50);
+  margin-bottom: .5rem;
+}
+.note{
+  font-size: 1.1rem;
+  color: rgb(150, 150, 150);
+  font-style: italic;
+    color: red;
+  
+
+}
+
+.reviews {
+  margin: 2rem auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.review{
+  margin: 0 1rem;
+  min-width: 300px;
+  flex: 1;
+}
+
+.head-review{
+  margin: 1.75rem auto;
+  width: 150px;
+  height: 150px;
+}
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+}
+
+.body-review{
+  background-color: rgb(238, 238, 238);
+  padding: 2.5rem;
+  box-shadow: 2px 2px 10px 3px rgb(225, 225, 225);
+}
+.name-review{
+  font-size: 1.5rem;
+  color: rgb(50, 50, 50);
+  margin-bottom: .25rem;
+}
+.place-review{
+  color: red;
+  font-style: italic;
+}
+.rating{
+  color: rgb(253, 180, 42);
+  margin: 1rem 0;
+}
+.desc-review{
+  line-height: 1.5rem;
+  letter-spacing: 1px;
+  color: rgb(150, 150, 150);
+}
+
+
+.footer{
+    background: var(--light-yellow);
+    padding-bottom: 8rem;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);}
+
+@media (max-width: 678px){
+  .review{
+    margin-top: 1.5rem;
+  }
+}
+
+  </style>
+  
+  <title>Carsgalaxy</title>
+</head>
+<header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+
+    <nav class="navbar">
+        <a href="Home.html">home</a>
+        <a href="Home.html">vehicles</a>
+        <a href="About us.html">Services</a>
+        <a href="Offers.html">offers</a>
+        <a href="reviews.html">reviews</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div >
+        <button id="login-btn" class="btn">login</button>
+        <button id="signup-btn" class="btn">signup</button>
+       
+    </div>
+
+</header> 
+    
+<div class="login-form-container">
+
+    <span id="close-login-form" class="fas fa-times"></span>
+
+    <form action="">
+        <h3>user login</h3>
+        <input type="email" placeholder="email" class="box" required>
+        <input type="password" placeholder="password" class="box" required>
+        <p> forget your password <a href="#">click here</a> </p>
+        <input type="submit" value="login" class="btn">
+    </form>
+</div>
+<div class="signup-form-container">
+     
+    <span id="close-signup-form" class="fas fa-times"></span>
+    
+    <form action="">
+        <h3>Create account</h3>
+        <input type="First name" placeholder="First name" class="box">
+        <input type="last name" placeholder="last name" class="box">
+        <input type="email" placeholder="email" class="box">
+        <input type="number" placeholder="number" class="box">
+        <input type="password" placeholder="password" class="box">
+        <input type="submit" value="signup" class="btn">
+    </form>
+    </div>
+
+<body>
+    
+   <br> <br><br><br><br><br><br>  
+      
+
+<div class="rev-section">
+
+<center><h2 class="title">Expert's thoughts...</h2></center>
+<center><p class="note">Experts share their views here...</p></center>
+
+<div class="reviews">
+
+<div class="review">
+   <div class="head-review">
+      <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80" width="250px">
+   </div>
+   <div class="body-review">
+      <div class="name-review">Nadhan</div>
+      <div class="place-review">Germany</div>
+      <div class="rating">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half"></i>
+      </div>
+      <div class="desc-review">I am  working in the field of mechanical services of machinery engines.This webpage has helped me in the preparation for my interview to know the details of the each and every car in a well-disciplined manner.</div>
+   </div>
+</div>
+<div class="review">
+   <div class="head-review">
+      <img src="https://images.unsplash.com/photo-1547147607-6eab7b49f3ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjQ1fHxwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" width="250px">
+   </div>
+   <div class="body-review">
+      <div class="name-review">Mary Will</div>
+      <div class="place-review">Paris</div>
+      <div class="rating">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+      </div>
+      <div class="desc-review">Incredible page i have seen in my entire automobile career which displays the exact details of the machinery.This website provides the user with all the details they need to know about the car.</div>
+   </div>
+</div>
+<div class="review">
+   <div class="head-review">
+      <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" width="250px">
+   </div>
+   <div class="body-review">
+      <div class="name-review">Smith</div>
+      <div class="place-review">Australia</div>
+      <div class="rating">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half"></i>
+      </div>
+      <div class="desc-review">As a ceo of the kia i have seen only this car website which display the correct details of kia where all the other websites fail to do it.Thats the reason i gave them 5 star.Please go through all the details here.</div>
+   </div>
+</div>
+
+</div>
+<div class="reviews">
+
+    <div class="review">
+       <div class="head-review">
+          <img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" width="250px">
+       </div>
+       <div class="body-review">
+          <div class="name-review">Moneesh</div>
+          <div class="place-review">India</div>
+          <div class="rating">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star-half"></i>
+          </div>
+          <div class="desc-review">I got to know this webpage by my employees who works here.They said that this is the page which provides the right information about our cars we manufacture.Yeah it's true they show up the truth.</div>
+       </div>
+    </div>
+    <div class="review">
+       <div class="head-review">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVyc29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" width="250px">
+       </div>
+       <div class="body-review">
+          <div class="name-review">Samantha</div>
+          <div class="place-review">India</div>
+          <div class="rating">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+          </div>
+          <div class="desc-review">This webpage helped my employees to know which car they should buy.Pricing is not the only thing they see,they need to know each and single detailing of the car.This is eco-friendly.</div>
+       </div>
+    </div>
+    <div class="review">
+       <div class="head-review">
+          <img src="https://images.unsplash.com/photo-1656300510252-accc17174a69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEyfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" width="250px">
+       </div>
+       <div class="body-review">
+          <div class="name-review">Virat</div>
+          <div class="place-review">India</div>
+          <div class="rating">
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star"></i>
+             <i class="fas fa-star-half"></i>
+          </div>
+          <div class="desc-review">This webpage explains the meaning of user-friendly because all the people who buy the car don't know the mechanical terms.This webpage explains everything in a friendly manner.</div>
+       </div>
+    </div>
+    <div class="reviews">
+
+        <div class="review">
+           <div class="head-review">
+              <img src="https://images.unsplash.com/photo-1485206412256-701ccc5b93ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjYzfHxwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" width="250px">
+           </div>
+           <div class="body-review">
+              <div class="name-review">Morgan</div>
+              <div class="place-review">England</div>
+              <div class="rating">
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star-half"></i>
+              </div>
+              <div class="desc-review">Very surprisingly to see a page like this where all the details are mentioned in a great manner.It explains about all the details specifically and accurately about the benefits and disadvantages.Very good.</div>
+           </div>
+        </div>
+        <div class="review">
+           <div class="head-review">
+              <img src="https://images.unsplash.com/photo-1605569181607-89f5391eb251?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjY2fHxwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" width="250px">
+           </div>
+           <div class="body-review">
+              <div class="name-review">Mathew</div>
+              <div class="place-review">Australia</div>
+              <div class="rating">
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+              </div>
+              <div class="desc-review">Type of tyre,air capacity,volume and what else is not there in the website.Absolutely stunning to see a webpage like this being shown all the details in a very good manner and friendly manner.</div>
+           </div>
+        </div>
+
+        <div class="review">
+           <div class="head-review">
+              <img src="https://images.unsplash.com/photo-1579540252588-da0ee883560d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjc3fHxwZXJzb258ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" width="250px">
+           </div>
+           <div class="body-review">
+              <div class="name-review">Mastan bhai</div>
+              <div class="place-review">Hyderabad</div>
+              <div class="rating">
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star"></i>
+                 <i class="fas fa-star-half"></i>
+              </div>
+              <div class="desc-review">Actually i thought its not a famous website and ignored hen my employees said about it.But when my 20 year old mechanical studying son said me about this website while buying a car.I am surprised to see this.Wonderful.</div>
+           </div>
+        </div>
+        
+        </div>
+        
+    
+    </div>
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+    
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Vijayawada </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Chennai </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Coimbatore </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Mumbai </a>
+            </div>
+    
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> vehicles </a>
+                <a href="services.html"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="reviews.html"> <i class="fas fa-arrow-right"></i> reviews </a>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div> 
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+                <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+    
+        </div>
+    
+        <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+    
+    </section>
+    
+
+</div>
+
+
+
+</body>
+<script>
+    
+document.querySelector('#login-btn').onclick = () =>{
+  document.querySelector('.login-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-login-form').onclick = () =>{
+  document.querySelector('.login-form-container').classList.remove('active');
+}
+document.querySelector('#signup-btn').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-signup-form').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.remove('active');
+}
+
+</script>
+</html>

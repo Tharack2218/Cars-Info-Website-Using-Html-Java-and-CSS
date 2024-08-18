@@ -1,0 +1,577 @@
+<style>
+    .ms{border:groove;width: 800px;padding-top: 20px;box-shadow: 0 .2rem .5rem rgba(0,0,0,.3);margin-left: 30px;padding: 20px;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
+    
+    .op{border: none;}
+
+    *{
+        margin:0; padding:0;
+        box-sizing: border-box;
+        transition:all .2s linear;
+    }
+      body {
+        overflow-x: hidden;
+        
+    }
+p{font-size: 15px;;color:dimgray;margin-right: 150px;margin-left: 150px;}
+    
+.main{margin-right: 150px;margin-left: 150px;margin-top: 50px; margin-bottom: 25px;}
+
+ 
+.brands{margin-left: 50px;width: 50px;height: 80px; border:groove;
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+.brands:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.brand{margin-left: 50px;margin-bottom: 15px; font-size: large;}
+.tittle{margin-right: 100px;margin-left: 150px;}
+
+
+
+#more {display: none;}
+
+.btn{border-radius: 8px;padding: 8px 20px;background-color: #e7e7e7; color: black;}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 4.5rem;
+    color:var(--black);
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom:1rem; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.4rem 3rem;
+    background:var(--light-yellow);
+    color:var(--black);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding:3rem 9%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:var(--black);
+    font-weight: bold;
+}
+
+.header .logo span{
+    color:var(--yellow);
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--yellow);
+}
+
+#login-btn .btn{
+    margin-top: 0;
+}
+
+#login-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
+.header.active{
+    padding:2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color:var(--light-color);
+    display: none;
+}
+
+.footer{
+    background: var(--light-yellow);
+    padding-bottom: 5rem;
+    width: 100%;
+    padding-left: 100px;
+    padding-right: 0;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);
+}
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:2rem;
+    }
+
+    .header.active{
+        padding:2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: block;
+    }
+
+    #menu-btn.fa-times{
+        transform:rotate(180deg);
+    }
+
+    #login-btn .btn{
+        display: none;
+    }
+
+    #login-btn i{
+        display: block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:99%; left:0; right:0;
+        background: #fff;
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .navbar a{
+        margin:2rem;
+        display: block;
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .heading{
+        font-size: 3rem;
+    }
+
+}
+.titles{
+    padding-top: 150px;margin-right: 150px;margin-left: 150px;
+}
+.hold{
+    display: flex;
+    flex-direction: row;
+}
+.right-sec{
+    flex: 1;
+}
+.left{
+    flex: 1;
+    flex-shrink: 2;    
+}
+
+.button1{background-color:#b6b6b6;padding: 4px 12px;margin-top: 5px;}
+.button1:hover{background-color: #ffee80;}
+.button3{border:2px solid;padding: 4px 12px;margin-top: 5px;color: red;background-color: #e7e7e7;}
+
+.upc{font-size: small;color: #666;}
+
+
+</style>
+
+<html>
+
+<script>
+    function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+
+
+</script>
+
+<p id="demo"></p>
+<title>Carsgalaxy</title>
+
+<header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+
+    <nav class="navbar">
+        <a href="Home.html">home</a>
+        <a href="Home.html">vehicles</a>
+        <a href="About us.html">Services</a>
+        <a href="Offers.html">offers</a>
+        <a href="reviews.html">reviews</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div >
+        <button id="login-btn" class="btn">login</button>
+        <button id="signup-btn" class="btn">signup</button>
+       
+    </div>
+
+</header> 
+    <head class="siva">
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+
+        <title class="tittle">Tata cars in India</title>
+        
+        <h1 class="main">TATA</h1>
+    </head><div>
+    <body>
+        <p>
+            Tata car price starts at Rs 6.31 Lakh for the cheapest model which is Tiago and the price of most expensive model, 
+            which is Nexon EV Max starts at Rs 19.63 Lakh. Tata offers 11 car models in India, including 2 cars in SUV category,
+            3 cars in Hatchback category, 4 cars in Compact SUV category<span id="dots">....</span><span id="more">2 cars 
+            in Compact Sedan category. Tata has 5 upcoming cars in India, Nexon CNG, Altroz EV, Tiago EV, Curvv EV Concept and Avinya.
+                <br>
+            <br>
+            The Tata conglomerate is one of the biggest businesses in India and also the pioneers of the Indian automotive industry. 
+            The company''s manufacturing base in India is spread across Jamshedpur (Jharkhand), Pune (Maharashtra), 
+            Lucknow (Uttar Pradesh), Pantnagar (Uttarakhand), Dharwad (Karnataka) and Sanand (Gujarat).
+            <br>
+            In 2008, Tata Motors acquired Jaguar and Land Rover, the legendary British marque from Ford. It managed to turn around the 
+            debt-ridden brand and re-establish JLR as a global luxury car maker again. Back home, Tata Motors went big with the Indica 
+            and its iterations, but as the market changed rapidly, the competitors gained the upper hand.
+            <br>
+            <br>
+            The Bolt and the Zest were the first to be introduced in the process of restructuring and rebranding Tata Motors as a modern
+            global car maker. Later, products like the Tata Tiago and the Tata Tigor have led from the front. Also SUVs like the Tata Hexa
+            and the latest, the Nexon, have also gained market traction, pushing Tata Motors into the top-five car sellers in the country.
+            <br>
+            <br>
+            Apart from the Tigor-EV, the company also plans to introduce the electric version of the Altroz and the Tiago.</span>
+
+             <center><button onclick="myFunction()" id="myBtn" class="btn">Read more</button></center>
+            
+        </p>
+        <br>
+        <hr>
+        <br>
+        <br>
+        
+        <h1 class="tittle">TATA CAR MODELS</h1>
+        <br>
+        <br>
+
+        <div class="hold">
+            <div class="right-sec">
+                <div class="tittle">
+                     <center><table class="ms">
+                    <tr class="op">
+                        <td width="40%">
+                            <div><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/41645/tata-nexon-right-front-three-quarter3.jpeg?q=75"></div>
+    
+                        </td>
+                        <td>TATA NEXON &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.6 / 5</span><br>
+                        <br>
+                        <b>Rs 8.77 lakh* </b><small>onwards</small><br>
+                        
+
+                        <a href="tata nexon.html" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                <table class="ms">
+                    <br>
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/39015/punch-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75"></td>
+                        <td>TATA PUNCH &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.0 / 5</span><br>
+                        <br>
+                        <b>Rs 6.82 lakh* </b><small>onwards</small> <br>
+                        <a href="#" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                    <br>
+                <table class="ms">
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/32597/altroz-exterior-right-front-three-quarter-79.jpeg?isig=0&q=75"></td>
+                        <td>TATA ALTROZ &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.6 / 5</span><br>
+                        <br>
+                        <b>Rs 7.42 lakh* </b><small>onwards</small>  <br>
+                        <a href="#" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                    <br>
+                <table class="ms">
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/40027/safari-exterior-right-front-three-quarter-2.jpeg?q=75"></td>
+                        <td>TATA SAFARI &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.6 / 5</span><br>
+                        <br>
+                        <b>Rs 18.61 lakh* </b><small>onwards</small>  <br>
+                        <a href="#" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+                </table>
+                    <br>
+                <table class="ms">
+                    <tr class="op">
+                        <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/32958/tata-harrier-right-front-three-quarter58.jpeg?q=75"></td>
+                        <td>TATA HARRIER   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.5 / 5</span><br>
+                         <br>
+                        <b>Rs 17.89 lakh* </b><small>onwards</small>  <br>
+                        <a href="#" target="_blank"><button class="button1">Specifications</button></a></td>
+                    </tr>
+            </table>
+            <table class="ms">
+                <tr class="op">
+                    <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/39345/tiago-exterior-right-front-three-quarter-9.jpeg?isig=0&q=75"></td>
+                    <td>TATA TIAGO &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.4 / 5</span><br>
+                     <br>
+                    <b>Rs 6.31 lakh* </b><small>onwards</small>  <br>
+                    <a href="#" target="_blank"><button class="button1">Specifications</button></a></td>
+                </tr>
+        </table>
+        <table class="ms">
+            <tr class="op">
+                <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/41160/tata-tigor-right-front-three-quarter3.jpeg?q=75"></td>
+                <td>TATA TIGOR &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<svg width="20" height="20";><polygon points="10,1,4,19.8,19,7.8,1,7.8,16,19.8" style="fill:rgb(18, 139, 18);"></svg><span style="font-size:15px;color:rgb(18, 139, 18); ;">&ensp;4.4 / 5</span><br>
+                 <br>
+                <b>Rs 6.99 lakh* </b><small>onwards</small>  <br>
+                <a href="#" target="_blank"><button class="button1">Specifications</button></a></td>
+            </tr>
+    </table></center>
+            <br>
+        <br>
+        <br>
+
+        <h1 class="tittle" align="center">UPCOMMING TATA CARS</h1>
+        <br>
+        <br>
+        <br>
+        <center><table class="ms">
+            
+            <tr>
+                <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/cw/ec/40453/Tata-Tiago-EV-Exterior-169932.jpg?wm=0&q=75"></td>
+                <td>TATA TIGOR EV<br>
+                    <br>
+                <b>Rs 5.00 lakh* </b><small>onwards</small>  <br>
+                <span class="upc">Expected launch - 2023</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="alert('                      We will send you a mail when launched\n                                        Thank you !')"  class="button3">Alert Me When Launched</button>
+            </tr>
+            </table>
+            <br>
+            <table class="ms">
+            <tr>
+                <td width="40%"><img src="https://imgd.aeplcdn.com/227x128/n/cw/ec/46800/tata-altroz-ev-left-side-view5.jpeg?q=75"></td>
+                <td>TATA ALTROZ EV<br>
+                    <br>
+                <b>Rs 12.00 lakh* </b><small>onwards</small>  <br>
+                <span class="upc">Expected launch - 2022</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="alert('                      We will send you a mail when launched\n                                        Thank you !')"  class="button3">Alert Me When Launched</button>
+            </tr>
+        </table></center>
+        <br>
+        <br>
+        <br>
+        <br>
+
+</body>
+        </div>
+
+    </div></center>
+        <div class="left">
+            <h2 class="brand">SIMILAR BRANDS</h2>
+            <table class="brands" border="1">
+                <tr>
+                    <td class="brands"><a href="MRUTHI.HTML" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/10/brands/logos/maruti-suzuki1647009823420.jpg?v=1647009823707&q=75" width="100px" height="60px"></td>
+                    <td class="brands"><a href="honda.html" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/7/brands/logos/honda.jpg?v=1630056209549&q=75" width="100px" height="60px"></td>
+                    <td class="brands"><a href="HYUNDAI 1.HTML" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/8/brands/logos/hyundai.jpg?v=1629973193722&q=75" width="100px" height="60px"></td>
+                </tr>
+                <tr>
+                <td class="brands"><a href="VOLKSWAGEN.html" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/20/brands/logos/volkswagen.jpg?v=1630056096439&q=75" width="100px" height="60px"></td>                
+                <td class="brands"><a href="kia.html" target="_blank"><img src="https://imgd.aeplcdn.com/0X0/n/cw/ec/70/brands/logos/kia.jpg?v=1630057189593&q=75" width="100px" height="60px"></td>
+            </tr>
+        </table>
+        </div>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>  <br>
+        <br>
+        <br>
+        <br>
+<footer>
+    <section class="footer" id="footer">
+
+        <div class="box-container">
+    
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> india </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> japan </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> france </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> russia </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> USA </a>
+            </div>
+    
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> vehicles </a>
+                <a href="services.html"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="reviews.html"> <i class="fas fa-arrow-right"></i> reviews </a>
+                <a href="Home.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+                <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+    
+        </div>
+    
+        <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+    </section></footer>
+</html>
+
+<script src="E:\UID\Project 1\html\New folder (2)\cars website\cars website\js\script.js"></script>    

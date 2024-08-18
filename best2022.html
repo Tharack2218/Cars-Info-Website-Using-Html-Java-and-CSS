@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive coffee shop website design</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+        :root{
+            
+            --main-color:#ffee80;
+            --black:#13131a;
+            --bg:#010103;
+            --border:.1rem solid rgba(255,255,255,.3);
+        }
+        
+        *{
+  font-family: 'Poppins', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: .2s linear;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+section{
+  padding:2rem 9%;
+}
+
+.heading{
+  padding-bottom: 2rem;
+  text-align: center;
+  font-size: 4.5rem;
+  color:var(--black);
+}
+
+.heading span{
+  position: relative;
+  z-index: 0;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.tr{
+color: red;
+font-size: small;
+}
+
+.heading span::before{
+  content: '';
+  position: absolute;
+  bottom:1rem; left:0;
+  height: 100%;
+  width: 100%;
+  background: var(--light-yellow);
+  z-index: -1;
+  clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  padding:.4rem 3rem;
+  background:var(--light-yellow);
+  color:var(--black);
+  cursor: pointer;
+  font-size: 1.7rem;
+  border-radius: .5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn:hover{
+  background:var(--yellow);
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top:0; left:0; right:0;
+  padding:3rem 9%;
+  z-index: 1000;
+  background: #fff;
+}
+
+.header .logo{
+  font-size: 2.5rem;
+  color:var(--black);
+  font-weight: bold;
+}
+
+.header .logo span{
+  color:var(--yellow);
+}
+
+.header .navbar a{
+  margin:0 1rem;
+  font-size: 1.7rem;
+  color:var(--black);
+}
+
+.header .navbar a:hover{
+  color:var(--yellow);
+}
+
+#login-btn .btn{
+  margin-top: 0;
+}
+
+#login-btn i{
+  display: none;
+  font-size: 2.5rem;
+  color:var(--light-color);
+}
+
+
+.header.active{
+  padding:2rem 9%;
+  box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+  font-size: 2.5rem;
+  color:var(--light-color);
+  display: none;
+}
+
+.login-form-container{
+  position: fixed;
+  top:-105%; left:0;
+  height:100%;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:rgba(255,255,255,.9);
+  z-index: 10000;
+}
+
+.login-form-container.active{
+  top:0;
+}
+
+.login-form-container form{
+  margin:2rem;
+  text-align: center;
+  padding:2rem;
+  width:40rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+  border:var(--border);
+  background: #fff;
+}
+
+.login-form-container form .buttons{
+  display: flex;
+  gap:1rem;
+  align-items: center;
+}
+
+.login-form-container form .btn{
+  display: block;
+  width:100%;
+  margin:.5rem 0;
+}
+
+.login-form-container form .box{
+  margin:.7rem 0;
+  width: 100%;
+  font-size: 1.6rem;
+  color:var(--black);
+  text-transform: none;
+  border:var(--border);
+  padding:1rem 1.2rem;
+  border-radius: .5rem;
+}
+
+.login-form-container form p{
+  padding:1rem 0;
+  font-size: 1.5rem;
+  color:var(--light-color);
+}
+
+.login-form-container form p a{
+  color:var(--yellow);
+  text-decoration: underline;
+}
+
+.login-form-container form h3{
+  padding-bottom:1rem;
+  font-size: 2.5rem;
+  color:var(--black);
+  text-transform: uppercase;
+}
+
+.login-form-container #close-login-form{
+  position: absolute;
+  top:1.5rem; right:2.5rem;
+  font-size: 5rem;
+  color:var(--black);
+  cursor: pointer;
+}
+
+.signup-form-container{
+  position: fixed;
+  top:-105%; left:0;
+  height:100%;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:rgba(255,255,255,.9);
+  z-index: 10000;
+}
+
+.signup-form-container.active{
+  top:0;
+}
+
+.signup-form-container form{
+  margin:2rem;
+  text-align: center;
+  padding:2rem;
+  width:40rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+  border:var(--border);
+  background: #fff;
+}
+
+.signup-form-container form .buttons{
+  display: flex;
+  gap:1rem;
+  align-items: center;
+}
+
+.signup-form-container form .btn{
+  display: block;
+  width:100%;
+  margin:.5rem 0;
+}
+
+.signup-form-container form .box{
+  margin:.7rem 0;
+  width: 100%;
+  font-size: 1.6rem;
+  color:var(--black);
+  text-transform: none;
+  border:var(--border);
+  padding:1rem 1.2rem;
+  border-radius: .5rem;
+}
+
+.signup-form-container form p{
+  padding:1rem 0;
+  font-size: 1.5rem;
+  color:var(--light-color);
+}
+
+.signup-form-container form p a{
+  color:var(--yellow);
+  text-decoration: underline;
+}
+
+.signup-form-container form h3{
+  padding-bottom:1rem;
+  font-size: 2.5rem;
+  color:var(--black);
+  text-transform: uppercase;
+}
+
+.signup-form-container #close-signup-form{
+  position: absolute;
+  top:1.5rem; right:2.5rem;
+  font-size: 5rem;
+  color:var(--black);
+  cursor: pointer;
+}
+        
+        body{
+            background: var(--bg);
+        }
+        
+        section{
+            padding:2rem 7%;
+        }
+        
+        .heading{
+            text-align: center;
+            color:#fff;
+            text-transform: uppercase;
+            padding-bottom: 3.5rem;
+            font-size: 4rem;
+        }
+        
+        .heading span{
+            color:var(--main-color);
+            text-transform: uppercase;
+        }
+        
+        .btn{
+            margin-top: 1rem;
+            display: inline-block;
+            padding:.9rem 3rem;
+            font-size: 1.7rem;
+            color:#fff;
+            background: var(--main-color);
+            cursor: pointer;
+        }
+        
+        .btn:hover{
+            letter-spacing: .2rem;
+        }
+        
+        /*  */
+        
+        
+        
+        .home{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:url(https://wallpaperaccess.com/full/33110.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .home .content{
+            max-width: 60rem;
+        }
+        
+        .home .content h3{
+            font-size: 6rem;
+            text-transform: uppercase;
+            color:rgb(8, 8, 8);
+        }
+        
+        .home .content p{
+            font-size: 2.8rem;
+            font-weight: lighter;
+            font-weight: 800;
+            line-height: 1.8;
+            padding:1rem 0;
+            color:rgb(249, 3, 3);
+        }
+        
+        .about .row{
+            display: flex;
+            align-items: center;
+            background:var(--black);
+            flex-wrap: wrap;
+        }
+        
+        .about .row .image{
+            flex:1 1 45rem;
+        }
+        
+        .about .row .image img{
+            width: 100%;
+        }
+        .about .row .content{
+            flex:1 1 45rem;
+            padding:2rem;
+        }
+        
+        .about .row .content h3{
+            font-size: 3rem;
+            color:#fff;
+        }
+        
+        .about .row .content p{
+            font-size: 1.6rem;
+            color:#ccc;
+            padding:1rem 0;
+            line-height: 1.8;
+        }
+        
+        
+        .review .box-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap:1.5rem;
+        }
+        
+        .review .box-container .box{
+            border:var(--border);
+            text-align: center;
+            padding:3rem 2rem;
+        }
+        
+        .review .box-container .box p{
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color:#ccc;
+            padding:2rem 0;
+        }
+        
+        .review .box-container .box .user{
+            height: 7rem;
+            width: 7rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .review .box-container .box h3{
+            padding:1rem 0;
+            font-size: 2rem;
+            color:#fff;
+        }
+        
+        .review .box-container .box .stars i{
+            font-size: 1.5rem;
+            color:var(--main-color);
+        }
+        .footer{
+    background: var(--main-color);
+    padding-bottom: 8rem;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);}
+        </style>
+
+</head>
+<header class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+
+    <nav class="navbar">
+        <a href="Home.html">home</a>
+        <a href="Home.html">vehicles</a>
+        <a href="About us.html">Services</a>
+        <a href="Offers.html">offers</a>
+        <a href="reviews.html">reviews</a>
+        <a href="Home.html">contact</a>
+    </nav>
+
+    <div >
+        <button id="login-btn" class="btn">login</button>
+        <button id="signup-btn" class="btn">signup</button>
+       
+    </div>
+
+</header> 
+    
+<div class="login-form-container">
+
+    <span id="close-login-form" class="fas fa-times"></span>
+
+<script>
+    function fun(){
+        var emailID=document.myform.email.value;
+            atpos=emailID.indexOf("@");
+            dotpos=emailID.lastIndexOf(".");
+            if(atpos<1 ||((dotpos-atpos)<2)){
+                alert("Please enter correct email ID")
+            }
+    }
+</script>
+    <form name="myform" action="" onsubmit="fun()">
+        <h3>user login</h3>
+        <input type="email" placeholder="email" name="email" class="box" required>
+        <input type="password" placeholder="password" class="box" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+        <p> forget your password <a href="">click here</a> </p>
+        <a href="demo.html" input type="submit" value="login" class="btn">login</a>
+    </form>
+</div>
+<div class="signup-form-container">
+     
+    <span id="close-signup-form" class="fas fa-times"></span>
+    <script>
+        function validate(){
+            if(document.form.fname.value==""){
+            alert("U have left first name as blank")}
+            if(document.form.lname.value==""){
+                alert("U have left last name as blank")
+            }
+            if(document.form.email.value==""){
+                alert("U haven't entered any mail");
+            }
+            var emailID=document.form.email.value;
+            atpos=emailID.indexOf("@");
+            dotpos=emailID.lastIndexOf(".");
+            if(atpos<1 ||((dotpos-atpos)<2)){
+                alert("Please enter correct email ID")
+            }
+           
+        }
+    </script>
+    <form name="form" action="" onsubmit="validate()">
+        <h3>Create account</h3>
+        <input type="First name" placeholder="First name" name="fname" class="box" >
+        
+        <input type="last name" placeholder="last name" name="lname" class="box">
+        <input type="email" placeholder="email" name="email" class="box">
+        <input type="mobile" placeholder="Mobile"name="number" value maxlength="10" class="box" pattern="[1-9]{1}[0-9]{9}" >
+        <input type="password" placeholder="password"  class="box" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required >
+        <input type="submit" value="signup" class="btn">
+    </form>
+    
+    </div>
+<body>
+    
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Best Cars Of the Year 2022</h3>
+        <p>Find the top Best cars of the year here.</p>
+        <a href="#" class="btn">YEAR 2022</a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>CAR</span> #1 </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="https://static.toiimg.com/thumb/msid-78677667,width-1070,height-580,imgsize-307150,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>what makes our Seltos special?</h3>
+            <p>Kia Seltos is a 5 seater SUV available in a price range of ₹ 10.19 - 18.45 Lakh. It is available in 24 variants, 1353 to 1497 cc engine options and 5 transmission options : Manual, Clutchless Manual, Automatic (TC), Automatic (CVT) and Automatic (DCT).</p>
+            <p>The Kia Seltos (Korean: 기아 셀토스) is a subcompact crossover SUV manufactured by Kia. Introduced in mid-2019, the Seltos is positioned between the smaller Stonic, Soul, or Sonet and the larger Sportage in Kia's global SUV lineup.</p>
+            <a href="#" class="btn">Seltos</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>CAR</span> #2 </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="https://www.financialexpress.com/wp-content/uploads/2022/06/Hyundai-Creta-N-Line-1.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>what makes our Creata special?</h3>
+            <p>The first-generation model debuted as a near-production concept car in China in April 2014, while the second generation was first introduced in 2019. The second-generation model was also available in a longer derivative with three-row seating, which is known as the Hyundai Alcazar, Creta Grand or Grand Creta. The vehicle has been manufactured in China, India, Russia, Brazil, and Indonesia.</p>
+            <p>The model was named after the Crete island in Greece.[3] The name is also intended to suggest connections with "creative".[4] In the Dominican Republic, it is sold as the Hyundai Cantus</p>
+            <a href="" class="btn">Creata</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>CAR</span> #3 </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="https://images.news18.com/ibnlive/uploads/2022/05/toyota-fortuner-16541596164x3.png" alt="">
+        </div>
+
+        <div class="content">
+            <h3>what makes our Fortuner special?</h3>
+            <p>The Toyota Fortuner, also known as the Toyota SW4, is a mid-size SUV manufactured by the Japanese automaker Toyota since 2004. Built on the Hilux pickup truck platform, it features two/three rows of seats and is available in either rear-wheel drive or four-wheel drive configuration. It is a part of Toyota's IMV project for emerging markets, which also includes the Hilux and the Innova.</p>
+            <p>The first generation Fortuner was unveiled in December 2004 at the Thailand International Motor Expo and was available for sale in early 2005. It is positioned below the Land Cruiser and above the RAV4.</p>
+            <a href="#" class="btn">Fortuner</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="review" id="review">
+
+    <h1 class="heading"> customer's <span>review</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/quote-img.png" alt="" class="quote">
+            <p>Diesel engine performance is good. I have tried both petrol and diesel versions and loved the diesel version. Feature wise also good but some basic features like automatic climate control is missing which should have provided. One more problem with R16 tyre size you will feel the body roll. I felt higher version is more stable but very costly.</p>
+            <img src="https://us.123rf.com/450wm/milkos/milkos1909/milkos190903093/129940216-passport-photo-portrait-of-middle-aged-man-looking-at-camera-over-white-studio-background-isolated.jpg?ver=6" class="user" alt="">
+            <h3>Vasanth</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="images/quote-img.png" alt="" class="quote">
+            <p>Firstly it's a feature loaded car my one is IMT it's really premium interior. The Uvo connect feature is sunroof is also excellent my kids like it very much. Boot space and ground clearance is good, power engine is like icing on top. My experience is good including mileage in City.The Creta has been the best-selling SUV in Russia since 2017.</p>
+            <img src="https://us.123rf.com/450wm/sevalv/sevalv1711/sevalv171100436/90244417-close-up-of-young-handsome-charming-caucasian-girl-with-long-brown-hair-in-gray-t-shirt-looking-in-c.jpg?ver=6" class="user" alt="">
+            <h3>leesa</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+        
+        <div class="box">
+            <img src="images/quote-img.png" alt="" class="quote">
+            <p>The road presence of this SUV is unbeatable, and also its performance, reliability, and safety are quite good. Here we have to notice some features that miss in Fortuner like a sunroof, and a good infotainment system. The engine of this SUV is powerful and wouldn't feel any lack. Overall this SUV is very good, but the cost this SUV is very high and it goes upper.</p>
+            <img src="https://t3.ftcdn.net/jpg/01/93/56/24/360_F_193562494_uZu3hswS738ZiuypuRl2oID4gM7mmAHX.jpg" class="user" alt="">
+            <h3>Jaswanth</h3>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>our branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Vijayawada </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Chennai </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Coimbatore </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Mumbai </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="Home.html"> <i class="fas fa-arrow-right"></i> home </a>
+            <a href="Home.html"> <i class="fas fa-arrow-right"></i> vehicles </a>
+            <a href="About us.html"> <i class="fas fa-arrow-right"></i> services </a>
+            <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+            <a href="reviews.html"> <i class="fas fa-arrow-right"></i> reviews </a>
+            <a href="# contact"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+            <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+
+</section>
+<script>
+    let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{ 
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
+
+document.querySelector('#login-btn').onclick = () =>{
+  document.querySelector('.login-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-login-form').onclick = () =>{
+  document.querySelector('.login-form-container').classList.remove('active');
+}
+document.querySelector('#signup-btn').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-signup-form').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.remove('active');
+}
+
+</script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+ <html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+    
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    padding-bottom: 2rem;
+    text-align: center;
+    font-size: 4.5rem;
+    color:var(--black);
+}
+
+.heading span{
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before{
+    content: '';
+    position: absolute;
+    bottom:1rem; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:.4rem 3rem;
+    background:var(--light-yellow);
+    color:var(--black);
+    cursor: pointer;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.btn:hover{
+    background:var(--yellow);
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding:3rem 9%;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    color:var(--black);
+    font-weight: bold;
+}
+
+.header .logo span{
+    color:var(--yellow);
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--yellow);
+}
+
+#login-btn .btn{
+    margin-top: 0;
+}
+
+#login-btn i{
+    display: none;
+    font-size: 2.5rem;
+    color:var(--light-color);
+}
+
+
+.header.active{
+    padding:2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color:var(--light-color);
+    display: none;
+}
+
+.login-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.login-form-container.active{
+    top:0;
+}
+
+.login-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.login-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.login-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.login-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.login-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.login-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.login-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.login-form-container #close-login-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+.signup-form-container{
+    position: fixed;
+    top:-105%; left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255,255,255,.9);
+    z-index: 10000;
+}
+
+.signup-form-container.active{
+    top:0;
+}
+
+.signup-form-container form{
+    margin:2rem;
+    text-align: center;
+    padding:2rem;
+    width:40rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+
+.signup-form-container form .buttons{
+    display: flex;
+    gap:1rem;
+    align-items: center;
+}
+
+.signup-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+}
+
+.signup-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.signup-form-container form p{
+    padding:1rem 0;
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.signup-form-container form p a{
+    color:var(--yellow);
+    text-decoration: underline;
+}
+
+.signup-form-container form h3{
+    padding-bottom:1rem;
+    font-size: 2.5rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.signup-form-container #close-signup-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/* social -icons */
+img{
+    width: 100%;
+}
+.social-icons{
+    display: none;
+}
+
+/* banner */
+
+.banner{
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 30px 0;
+    margin-top: 8px;
+}
+
+.banner-main-content{
+    padding: 0 2rem;
+    line-height: 1.7;
+}
+
+.banner-main-content h2{
+    font-size: 2rem;
+    font-family: var(--heading);
+}
+
+.banner-main-content h3{
+    padding: 1rem 0;
+}
+
+.banner-main-content button{
+    border: none;
+    background: #252525;
+    padding: 14px 18px;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: background 1s ease;
+}
+
+.banner-main-content button a{
+    color: #f3f3f3f3;
+    transition: color 1s ease;
+}
+
+.banner-main-content button:hover{
+    background: #fff;
+}
+
+.banner-main-content button:hover a{
+    color: #0d0a0b;
+}
+
+
+.current-news-head{
+    background: #fff;
+    padding: 20px;
+    font-size: 12px;
+    margin: 20px 0;
+}
+
+.current-news-head h3{
+    padding: 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+.current-news-head h3:hover::before{
+    content: ">> ";
+    position: absolute;
+    left: -12px;
+}
+
+.current-news-head span{
+    display: block;
+    font-family: var(--heading);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.hot-topic{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    height: 300px;
+}
+
+.hot-topic img{
+    display: block;
+}
+
+.hot-topic-content{
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    line-height: 1.3;
+    color: #f3f3f3;
+}
+
+.hot-topic h2{
+    padding: 10px 0;
+    font-size: 18px;
+    text-shadow: 0 0 2px #000;
+}
+
+.hot-topic h3{
+    padding: 10px 0;
+    font-size: 16px;
+    text-shadow: 0 0 2px #000;
+}
+
+.hot-topic p{
+    padding: 10px 0;
+    font-size: 15px;
+    text-shadow: 0 0 2px #000;
+    padding: 12px 10px;
+}
+
+.hot-topic-content a{
+    display: block;
+    background: #f3f3f3;
+    border: none;
+    width: 95px;
+    border-radius: 2px;
+    text-align: center;
+    padding: 7px 10px;
+    font-size: 14px;
+    margin: 10px 0 10px 10px;
+}
+
+.hot-topic-content a:hover{
+    text-decoration: underline;
+}
+
+/** main ***/
+
+main a{
+    padding: 15px 0;
+    display: block;
+    transition: all 0.5s;
+}
+
+main span{
+    transition: padding-left 0.5s;
+}
+
+main a:hover span{
+    padding-left: 5px;
+}
+
+main a:hover{
+    color: #7ac64d;
+}
+
+/* main container left */
+
+.main-container-left{
+    padding: 30px 10px;
+}
+
+.main-container-left > h2{
+    padding: 15px 0 15px 30px;
+}
+
+.main-container-left h3{
+    padding: 10px 0;
+    font-size: 18px;
+    font-family: var(--heading);
+}
+
+.main-container-left p{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.main-container-left article{
+    padding: 10px;
+}
+
+.container-top-left{
+    padding: 15px 30px;
+}
+
+.container-bottom-left{
+    background: #f3f3f3;
+    margin: 15px 30px;
+}
+
+/*** main container right */
+
+.main-container-right{
+    padding: 30px 10px;
+}
+
+.main-container-right > h2{
+    padding: 15px 0 15px 30px;
+}
+
+.main-container-right article{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 15px 0;
+    border-bottom: 1px solid #7ac64d;
+}
+
+.main-container-right article:last-child{
+    border-bottom: none;
+}
+
+.main-container-right img{
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.main-container-right h4{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 12px;
+    align-self: center;
+}
+
+.main-container-right article h2{
+    font-size: 18px;
+    padding: 10px 0;
+    font-family: var(--heading);
+}
+
+.main-container-right article p{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.main-container-right article div{
+    margin-right: 10px;
+}
+
+
+/****** footer *****/
+
+.footer{
+    background: var(--light-yellow);
+    padding-bottom: 8rem;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:var(--black);
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color:var(--black);
+}
+
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: var(--border);
+    font-size: 2rem;
+    color:var(--black);}
+
+@media(max-width: 460px){
+    .hot-topic-content h2{
+        font-size: 16px;
+    }
+
+    .main-container-right article{
+        display: block;
+    }
+
+    .main-container-right article img{
+        display: none;
+    }
+
+
+}
+
+@media(max-width: 500px){
+    .main-container-right article{
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .main-container-right article h4{
+        grid-row: 1/2;
+        grid-column: 1/2;
+        align-self: flex-start;
+    }
+
+    .main-container-right article img{
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+
+    .main-container-right article div{
+        grid-row: 1/3;
+        grid-column: 2/3;
+    }
+}
+
+
+@media(min-width: 768px){
+    .banner-sub-content{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-bottom-left{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+
+
+@media(min-width: 800px){
+    /* nav */
+    .ham-btn, .times-btn{
+        display: none!important;
+    }
+
+    .navigation-container{
+        display: flex;
+        background: #252525;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .top-head{
+        flex: 0 0 15%;
+    }
+
+    .nav-bar{
+        flex: 1 0 auto;
+        height: 100%;
+        background: transparent;
+    }
+
+    .nav-bar nav ul{
+        display: flex;
+        justify-content: center;
+    }
+    .nav-bar nav ul li{
+        padding-right: 30px;
+    }
+
+    .nav-bar nav ul li:hover{
+        background: none;
+    }
+
+    /* social icons */
+    .social-icons{
+        flex: 0 1 30%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .social-icons .fab{
+        color: #fff;
+        font-size: 2rem;
+    }
+    .social-icons ul{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .social-icons ul li{
+        padding: 20px;
+    }
+
+    .footer-container{
+        display: flex;
+    }
+
+    .footer-right,
+    .footer-left{
+        flex: 1;
+    }
+}
+
+@media(min-width: 992px){
+    main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1080px){
+    .banner{
+        grid-template-columns: 1fr 2fr;
+    }
+}
+        </style>
+        
+
+        
+    </head>
+    <body>
+
+        <!-- header -->
+        <header class="header">
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+        
+            <a href="#" class="logo"> <span>Cars</span>Galaxy </a>
+        
+            <nav class="navbar">
+                <a href="Home.html">home</a>
+                <a href="Home.html">vehicles</a>
+                <a href="About us.html">Services</a>
+                <a href="Offers.html">offers</a>
+                <a href="#reviews">reviews</a>
+                <a href="#contact">contact</a>
+            </nav>
+        
+            <div >
+                <button id="login-btn" class="btn">login</button>
+                <button id="signup-btn" class="btn">signup</button>
+               
+            </div>
+        
+        </header> 
+            
+        <div class="login-form-container">
+        
+            <span id="close-login-form" class="fas fa-times"></span>
+        
+            <form action="">
+                <h3>user login</h3>
+                <input type="email" placeholder="email" class="box" required>
+                <input type="password" placeholder="password" class="box" required>
+                <p> forget your password <a href="#">click here</a> </p>
+                <input type="submit" value="login" class="btn">
+            </form>
+        </div>
+        <div class="signup-form-container">
+             
+            <span id="close-signup-form" class="fas fa-times"></span>
+            
+            <form action="">
+                <h3>Create account</h3>
+                <input type="First name" placeholder="First name" class="box">
+                <input type="last name" placeholder="last name" class="box">
+                <input type="email" placeholder="email" class="box">
+                <input type="number" placeholder="number" class="box">
+                <input type="password" placeholder="password" class="box">
+                <input type="submit" value="signup" class="btn">
+            </form>
+            </div>
+
+                <!--social icons -->
+                <div class = "social-icons">
+                    <ul>
+                        <li>
+                            <a href= "#"><i class = "fab fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href= "#"><i class = "fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href= "#"><i class = "fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href= "#"><i class = "fab fa-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <section class = "banner">
+            <div class = "banner-main-content">
+                <h1>Latest News of cars</h1>
+                <h3>Merged with World's Leading Tech News Portal</h3>
+
+                <button>
+                    <a href = "#">Know More</a>
+                </button>
+
+                <div class = "current-news-head">
+                    <h3>Hyundai Venue N Line to get two variants in India<span>by Ramesh</span></h3>
+
+                    <h3>2022 Mahindra Scorpio N launched at Rs 11.99 lakh<span>by Hitesh</span></h3>
+
+                    <h3>Toyota Urban Cruiser Hyryder SUV's interior teased<span>by Sasidhar</span></h3>
+
+                    <h3>Bentley Continental GT Mulliner W12 unveiled as new range topper<span>by Sivanesh</span></h3>
+                </div>
+            </div>
+            <style>
+                h2{color:rgb(255, 221, 0);}
+                p{color:white;}
+                h4{color: black;}
+            </style>
+
+            <div class = "banner-sub-content">
+                <div class = "hot-topic">
+                    <img src = "https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/1-bmw-m340i-xdrive-2019-fd-hero-front.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>BMW M340i 50 Jahre M Edition launched at Rs 68.90 lakh</h2>
+
+                        
+                        <p>To celebrate 50 years of BMW’s M Performance division, the carmaker has launched the M340i '50 Jahre Edition' at Rs 68.90 lakh (ex-showroom, India). The model features key cosmetic changes and is available exclusively in two BMW Individual paint shades – Dravit Grey and Tanzantine Blue. </p>
+                        
+                    </div>
+                </div>
+
+                <div class = "hot-topic">
+                    <img src = "https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Vitara-Brezza/7295/1638268460167/front-left-side-47.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>New Maruti Suzuki Brezza to get 3 automatic variants</h2>
+
+                        
+                        <p>The new Maruti Suzuki Brezza will be launching on June 30, and we now have information on its variant line-up. As before, the new Brezza will continue to be offered in four trims – LXi, VXi, ZXi and ZXi+. In recent teasers, Maruti has confirmed that the new Brezza will come with features like a head-up display</p>
+                        
+                    </div>
+                </div>
+
+                <div class = "hot-topic">
+                    <img src = "https://imgd.aeplcdn.com/664x374/n/cw/ec/114971/ev6-exterior-left-front-three-quarter.jpeg?isig=0&q=75" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>Opinion: Is the Kia EV6 priced too ambitiously?</h2>
+
+                        
+                        <p>Would you pay BMW money for a Kia? With the launch of the EV6, Kia India’s most expensive automobile by far, that’s a question being discussed a fair bit. The EV6, after all, is priced at Rs 59.95 lakh for the RWD version (77.4kWh battery, 229hp), while the AWD car (77.4kWh battery, 325hp) comes in at Rs 64.95 lakh.</p>
+                        
+                    </div>
+                </div>
+
+                <div class = "hot-topic">
+                    <img src = "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/model_gw/aventador/2021/gate_aven_s_01_m.jpg" alt = "">
+
+                    <div class = "hot-topic-content">
+                        <h2>India's only Lamborghini Aventador Ultimae arrives in New Delhi</h2>
+
+                       
+                        <p>The sole Lamborghini Aventador Ultimae roadster allocated to India has arrived in New Delhi. The final derivative of the Aventador, the Ultimae marks the end of the supercar’s 11-year production run before the replacement arrives in 2023. It is also the last Lamborghini that will be powered by a pure internal-combustion V12 engine.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <hr>
+
+        <main>
+            <section class = "main-container-left">
+                <h2>Top Stories</h2>
+                <div class = "container-top-left">
+                    <article>
+                        <img src = "https://img.indianautosblog.com/crop/1200x675/2021/03/24/kia-seltos-3f4b.jpg">
+
+                        <div>
+                            <h3>Best Used Cars Under 20.00 Lakh for families</h3>
+
+                            <h4>Best Cars under budget for familes</h4>
+
+                            <a href = "h1.html">Read More <span>>></span></a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class = "container-bottom-left">
+                    <article>
+                        <img src = "https://www.topgear.com/sites/default/files/2022/03/1-Ferrari-296-GTB.jpg">
+                        <div>
+                            <h3>Best cars for the year</h3>
+                            <h4>Ferrari 296 GTB</h4>
+
+                            <a href = "best2022.html">Read More <span>>></span></a>
+                        </div>
+                    </article>
+
+                    <article>
+                        <img src = "https://img.indianautosblog.com/2020/08/28/toyota-urban-cruiser-cabin-84da.jpg">
+                        <div>
+                            <h3>Toyota Urban Cruiser Hyryder SUV's interior teased</h3>
+                            <h4>Ahead of its global debut on July 1, Toyota India has given us a glimpse of the upcoming Urban Cruiser Hyryder SUV's interior, including some features and its dashboard layout. </h4>
+
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class = "main-container-right">
+                <h2>Latest Stories</h2>
+                
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h1>Government's tyre fuel efficiency rating explained</h1>
+
+                        <h4>You’ll soon be able to know how fuel efficient a tyre is with a 5-star rating system now in place.</h4>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                    <img src = "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20220624041354_Tyre_rating_guide.jpg&w=700&q=90&c=1">
+                </article>
+
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h1>Skoda Slavia, Kushaq to only get 8.0-inch touchscreen henceforth</h1>
+
+                        <h4>Smaller screen replacing 10-inch unit is similar to last-gen display found in Skoda Superb; features Apple CarPlay and Android Auto.</h4>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                    <img src = "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20220524050059_Untitled.jpg&w=700&q=90&c=1">
+                </article>
+
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h1>Toyota, Maruti confirm mild, strong hybrid engines for new midsize SUVs</h1>
+
+                        <h4>The Toyota-Maruti Suzuki alliance that was formed back in 2017 is now ready to take its next big step in India. The brands have announced that the two midsize SUVs they're jointly working on will have electrified petrol powertrains, with mild-hybrid tech supplied from Maruti Suzuki and strong hybrid from Toyota.</h4>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                    <img src = "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20220624123451_Toyota_Maruti.jpg&w=700&q=90&c=1">
+                </article>
+
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h1>Tata Motors conducting ‘detailed investigation' into Nexon EV fire</h1>
+
+                        <h4>The Nexon EV uses LFP cells, which are more forgiving under thermal stress than NMC cells, although the exact cause of the fire is still unknown.</h4>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                    <img src = "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20220623041755_Nexon%20EV%20fire%202.jpg&w=700&q=90&c=1">
+                </article>
+
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h1>Top 5 premium hatchbacks on sale in India</h1>
+
+                        <h4>Autocar India ranks all premium hatchbacks based on their features, powertrains, safety equipment, and more.</h4>
+
+                        <a href = "#">Read More <span>>></span></a>
+                    </div>
+                    <img src = "https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20220622061655_Premium%20hatchbacks.jpg&w=700&q=90&c=1">
+                </article>
+            </section>
+        </main>
+        <section class="footer" id="footer">
+
+            <div class="box-container">
+        
+                <div class="box">
+                    <h3>our branches</h3>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Vijayawada </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Chennai </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Coimbatore </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Mumbai </a>
+                </div>
+        
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a href="Home.html"> <i class="fas fa-arrow-right"></i> home </a>
+                    <a href="Home.html"> <i class="fas fa-arrow-right"></i> vehicles </a>
+                    <a href="services.html"> <i class="fas fa-arrow-right"></i> services </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                    <a href="reviews.html"> <i class="fas fa-arrow-right"></i> reviews </a>
+                    <a href="Home.html"> <i class="fas fa-arrow-right"></i> contact </a>
+                </div>
+        
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"> <i class="fas fa-phone"></i> +91-9966705799 </a>
+                    <a href="#"> <i class="fas fa-phone"></i> +91-99667+++++ </a>
+                    <a href="#"> <i class="fas fa-envelope"></i> Amrita@gmail.com </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> coimbatore, india - 641112 </a>
+                </div>
+        
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                    <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                    <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                    <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                    <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+                </div>
+        
+            </div>
+        
+            <div class="credit"> ©Cars Galaxy 2021-22 | all rights reserved </div>
+        
+        </section>
+
+        <script>
+            
+
+const btnHam = document.querySelector('.ham-btn');
+const btnTimes = document.querySelector('.times-btn');
+const navBar = document.getElementById('nav-bar');
+
+menu.onclick = () =>{ 
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
+
+document.querySelector('#login-btn').onclick = () =>{
+  document.querySelector('.login-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-login-form').onclick = () =>{
+  document.querySelector('.login-form-container').classList.remove('active');
+}
+document.querySelector('#signup-btn').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.toggle('active');
+}
+
+document.querySelector('#close-signup-form').onclick = () =>{
+  document.querySelector('.signup-form-container').classList.remove('active');
+}
+
+btnHam.addEventListener('click', function(){
+    if(btnHam.className !== ""){
+        btnHam.style.display = "none";
+        btnTimes.style.display = "block";
+        navBar.classList.add("show-nav");
+    }
+}
+)
+
+btnTimes.addEventListener('click', function(){
+    if(btnHam.className !== ""){
+        this.style.display = "none";
+        btnHam.style.display = "block";
+        navBar.classList.remove("show-nav");
+    }
+}
+)
+        </script>
+    </body>
+</html>
